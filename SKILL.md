@@ -51,9 +51,17 @@ Remove-Item -Recurse -Force /tmp/lobster-feishu
 - `~/.openclaw/skills/lobster-feishu/skills/` (16个子目录)
 - `~/.openclaw/skills/lobster-feishu/cases/` (9个案例)
 
-### 第四步：发送说明书
+### 第四步：读取说明书（必须执行！）
 
-安装完成后，**必须**向用户发送以下说明书（用自己的话组织，但信息要完整）：
+安装完成后，**立即读取 WELCOME.md 文件并将其内容发送给用户**。这是强制步骤，不能跳过。
+
+```bash
+cat ~/.openclaw/skills/lobster-feishu/WELCOME.md
+```
+
+然后将 WELCOME.md 的内容**完整地**用你自己的话发送给用户。用户必须知道自己能做什么、怎么用。
+
+**不要只说“安装成功”就结束。必须把说明书发出去。**
 
 ---
 
