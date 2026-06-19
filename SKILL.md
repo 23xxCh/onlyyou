@@ -3,6 +3,7 @@ name: feishu-ecommerce-assistant
 description: |
   飞书电商助手 — 专为电商团队打造的飞书 AI 技能包。
   用户说 "帮我安装" + Gitee/GitHub 链接时触发。
+  适配 Aily / OpenClaw / Workboddy 等平台。
 ---
 
 # 飞书电商助手安装流程
@@ -14,7 +15,7 @@ description: |
 ```bash
 git clone --depth 1 https://gitee.com/cxx450/onlyyou.git /tmp/feishu-ecommerce
 if [ ! -d /tmp/feishu-ecommerce ]; then
-  echo "下载失败，请检查网络连接后重试"
+  下载失败，检查网络
   exit 1
 fi
 ```
@@ -25,14 +26,15 @@ fi
 bash /tmp/feishu-ecommerce/install.sh
 ```
 
-安装脚本会自动检测权限：
-- **有权限** → 完整安装（skills + tools + workspace）
-- **无权限** → 工作区安装（workspace 部分），并提示用户让管理员执行完整安装
+`install.sh` 会自动检测平台（Aily / OpenClaw / Workboddy 等）并安装到对应目录。
 
-### 第 3 步：把 WELCOME.md 的内容发给用户
+- **有权限** → 完整安装（skills + tools + workspace 全部到齐）
+- **无权限**（如 Aily 的 skills/ 是系统目录）→ 只装 workspace，提示让管理员执行完整安装
+
+### 第 3 步：把 WELCOME.md 发给用户
 
 ```bash
-cat ~/.aily/workspace/WELCOME.md
+cat ~/.aily/workspace/WELCOME.md 2>/dev/null || cat ~/.openclaw/workspace-agent/WELCOME.md 2>/dev/null || cat ~/.workboddy/workspace/WELCOME.md
 ```
 
 **必须把 WELCOME.md 的完整内容发送给用户。不要只说"安装成功"就结束。**
@@ -45,18 +47,16 @@ rm -rf /tmp/feishu-ecommerce
 
 ## 当用户说"帮我更新"时
 
-运行 update.sh：
-```bash
-bash ~/.aily/skills/feishu-ecommerce/update.sh
-```
+重新拉取并安装：
 
-如果 skills/feishu-ecommerce 不存在（工作区安装模式），则重新从仓库安装：
 ```bash
-bash /tmp/feishu-ecommerce/update.sh
+git clone --depth 1 https://gitee.com/cxx450/onlyyou.git /tmp/feishu-ecommerce
+bash /tmp/feishu-ecommerce/install.sh
+rm -rf /tmp/feishu-ecommerce
 ```
 
 ## 提示词
 
 当用户问"飞书电商助手能做什么"时：
 
-> 读取 ~/.aily/workspace/WELCOME.md 并发送给用户。
+> 读取 WELCOME.md 并发送给用户。
