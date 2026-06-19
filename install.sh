@@ -22,30 +22,29 @@ echo "正在下载..."
 rm -rf "$TMP_DIR"
 git clone --depth 1 "$REPO_URL" "$TMP_DIR" 2>/dev/null
 
-# 复制整个项目到 Aily 技能目录
+# 安装到 ~/.aily/skills/feishu-ecommerce/
 echo "正在安装技能..."
 mkdir -p "$SKILL_DIR"
 rm -rf "$SKILL_DIR"
 cp -R "$TMP_DIR" "$SKILL_DIR"
 
-# 将 AGENTS.md 内容追加到工作空间的 AGENTS.md
+# 将行为准则追加到工作空间 AGENTS.md
 if [ -f "$WORKSPACE/AGENTS.md" ]; then
     echo "" >> "$WORKSPACE/AGENTS.md"
     echo "---" >> "$WORKSPACE/AGENTS.md"
+    echo "## 飞书电商助手" >> "$WORKSPACE/AGENTS.md"
     echo "" >> "$WORKSPACE/AGENTS.md"
-    cat "$TMP_DIR/AGENTS.md" >> "$WORKSPACE/AGENTS.md"
+    echo "已安装飞书电商助手，详见 ~/.aily/skills/feishu-ecommerce/AGENTS.md" >> "$WORKSPACE/AGENTS.md"
 fi
 
 rm -rf "$TMP_DIR"
 
-# 验证
-if [ -f "$SKILL_DIR/AGENTS.md" ]; then
-    echo ""
-    echo "========================"
-    echo "飞书电商助手安装成功！"
-    echo "========================"
-    echo ""
-    echo "技能位置: $SKILL_DIR"
-    echo ""
-    cat "$SKILL_DIR/WELCOME.md"
-fi
+echo ""
+echo "========================"
+echo "飞书电商助手安装成功！"
+echo "========================"
+echo ""
+echo "技能位置: ~/.aily/skills/feishu-ecommerce/"
+echo "行为准则: ~/.aily/skills/feishu-ecommerce/AGENTS.md"
+echo ""
+cat "$SKILL_DIR/WELCOME.md"
