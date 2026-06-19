@@ -10,19 +10,18 @@
 帮我安装：https://gitee.com/cxx450/onlyyou
 ```
 
-Aily 会自动克隆、安装、发送说明书。
+Aily 会自动克隆到 `~/.aily/skills/feishu-ecommerce/` 并更新工作空间配置。
 
 **或手动安装：**
 
 ```bash
-git clone https://gitee.com/cxx450/onlyyou.git
-cd onlyyou && bash install.sh
+git clone https://gitee.com/cxx450/onlyyou.git ~/.aily/skills/feishu-ecommerce
 ```
 
 **更新：**
 
 ```bash
-cd ~/.aily/workspace/skills/feishu-ecommerce && git pull
+cd ~/.aily/skills/feishu-ecommerce && git pull
 ```
 
 ---
@@ -72,33 +71,33 @@ cd ~/.aily/workspace/skills/feishu-ecommerce && git pull
 
 ---
 
-## 安装后 Aily 的目录结构
+## 安装后结构
 
 ```
-~/.aily/workspace/
-├── AGENTS.md              # 追加了飞书电商助手的行为准则
-├── WELCOME.md             # 安装后自动生成的说明书
-├── MEMORY.md              # 长期记忆
-├── skills/
-│   └── feishu-ecommerce/  # 16 个技能包
-│       ├── ecom-details-image/
-│       ├── ecommerce-visual-copywriting/
-│       ├── aesthetic-memory-skills/
-│       ├── mem0-skills/
-│       ├── agent-reach/
-│       ├── waninter-creative/
-│       ├── z-excel-editor/
-│       ├── z-mail-reader/
-│       ├── z-smart-xparse/
-│       ├── z-web-pack/
-│       ├── beautiful-feishu-whiteboard/
-│       ├── youtube-transcript-local/
-│       ├── christies-auctions-summary/
-│       ├── sothebys-auctions-summary/
-│       └── lark-workflows/     # 24 个工作流
-├── tools/lark-cli/        # 飞书官方 CLI
+~/.aily/skills/feishu-ecommerce/
+├── AGENTS.md              # 追加到 ~/.aily/workspace/AGENTS.md
+├── WELCOME.md             # 安装后自动显示的说明书
+├── MEMORY.md              # 长期记忆（可选导入工作空间）
+├── install.sh             # 一键安装脚本
 ├── cases/                 # 9 个电商案例
-└── prompts/               # 3 个提示词模板
+├── prompts/               # 3 个提示词模板
+├── skills/                # 16 个技能包（各含 SKILL.md）
+│   ├── ecom-details-image/
+│   ├── ecommerce-visual-copywriting/
+│   ├── aesthetic-memory-skills/
+│   ├── mem0-skills/
+│   ├── agent-reach/
+│   ├── waninter-creative/
+│   ├── z-excel-editor/
+│   ├── z-mail-reader/
+│   ├── z-smart-xparse/
+│   ├── z-web-pack/
+│   ├── beautiful-feishu-whiteboard/
+│   ├── youtube-transcript-local/
+│   ├── christies-auctions-summary/
+│   ├── sothebys-auctions-summary/
+│   └── lark-workflows/     # 24 个工作流
+└── tools/lark-cli/         # 飞书官方 CLI
 ```
 
 ---
