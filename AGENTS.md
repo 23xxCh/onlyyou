@@ -2,9 +2,9 @@
 
 ## 启动时
 
-读取本文件，了解你已具备的能力。以下所有技能已安装在 `~/.aily/skills/feishu-ecommerce/` 目录中。
+读取本文件，了解你已具备的能力。以下技能已安装在 `~/.aily/skills/` 目录中，与你原有的技能并列。
 
-## 你已安装的技能
+## 你已安装的新技能
 
 ### 飞书核心
 - **feishu-quick-reference** — 飞书 API 快速参考
@@ -38,13 +38,13 @@
 - **sothebys-auctions-summary** — 苏富比拍卖摘要
 
 ## 工具
-- **lark-cli** — 飞书官方 CLI，200+ 命令
+- **lark-cli** — 飞书官方 CLI，200+ 命令（~/.aily/tools/lark-cli/）
 
 ## 案例库
-- cases/ 目录下有 9 个电商案例，遇到相关问题时参考
+- `~/.aily/workspace/cases/` 目录下有 9 个电商案例，遇到相关问题时参考
 
 ## 提示词模板
-- prompts/ 目录下有 3 个提示词模板，引导用户时使用
+- `~/.aily/workspace/prompts/` 目录下有 3 个提示词模板，引导用户时使用
 
 ## 使用规则
 

@@ -10,35 +10,33 @@
 帮我安装：https://gitee.com/cxx450/onlyyou
 ```
 
-Aily 会自动克隆到 `~/.aily/skills/feishu-ecommerce/` 并更新 `~/.aily/workspace/AGENTS.md`。
-
 **或手动安装：**
 
 ```bash
-git clone https://gitee.com/cxx450/onlyyou.git ~/.aily/skills/feishu-ecommerce
+git clone https://gitee.com/cxx450/onlyyou.git /tmp/feishu-ecommerce && bash /tmp/feishu-ecommerce/install.sh
 ```
 
 **更新：**
 
 ```bash
-cd ~/.aily/skills/feishu-ecommerce && git pull
+cd ~/.aily/skills && for d in feishu-*/; do cd "$d" && git pull && cd ..; done
 ```
 
 ---
 
 ## 这是什么
 
-飞书电商助手是一个**已经养好**的 AI 技能包，安装后你的 Aily 就具备电商+飞书的全套能力。
+飞书电商助手是一个**已经养好**的 AI 技能包。安装后，16 个技能会分别装到 `~/.aily/skills/`，与 Aily 现有的 102 个技能并列。
 
 ### 包含内容
 
-| 类别 | 数量 | 内容 |
+| 类别 | 数量 | 安装位置 |
 |---|---|---|
-| 技能包 | 16 个 | 飞书 API / 画板 / 记忆 / Excel / 邮件 / 文档解析 / AI 生图 / 电商视觉 / 互联网搜索 |
-| 飞书工作流 | 24 个 | CRM / 库存 / 商业顾问 / 内容管线 / 社媒追踪 / 知识库 / 会议管理 |
-| 电商案例 | 9 个 | 选品 / 大促 / 客服 / 库存 / 画板 / 项目管理 / 日历 / 文档 / 视觉创作 |
-| 提示词模板 | 3 个 | 新人引导 / 效率诊断 / 电商引导 |
-| CLI 工具 | 1 套 | 飞书官方 CLI（200+ 命令） |
+| 技能包 | 16 个 | `~/.aily/skills/` |
+| 飞书工作流 | 24 个 | `~/.aily/skills/lark-workflows/` |
+| 电商案例 | 9 个 | `~/.aily/workspace/cases/` |
+| 提示词模板 | 3 个 | `~/.aily/workspace/prompts/` |
+| CLI 工具 | 1 套 | `~/.aily/tools/lark-cli/` |
 
 ---
 
@@ -75,32 +73,32 @@ cd ~/.aily/skills/feishu-ecommerce && git pull
 
 ```
 ~/.aily/
-├── workspace/AGENTS.md           # 追加了飞书电商助手引用
+├── workspace/
+│   ├── AGENTS.md              ← 追加了飞书电商助手行为准则
+│   ├── WELCOME.md             ← 安装后自动生成
+│   ├── cases/                 ← 9 个电商案例
+│   └── prompts/               ← 3 个提示词模板
 ├── skills/
-│   └── feishu-ecommerce/         # ← 本项目安装在这里
-│       ├── AGENTS.md             # 行为准则
-│       ├── WELCOME.md            # 说明书
-│       ├── MEMORY.md             # 长期记忆
-│       ├── install.sh            # 一键安装脚本
-│       ├── cases/                # 9 个电商案例
-│       ├── prompts/              # 3 个提示词模板
-│       ├── skills/               # 16 个子技能（各含 SKILL.md）
-│       │   ├── ecom-details-image/
-│       │   ├── ecommerce-visual-copywriting/
-│       │   ├── aesthetic-memory-skills/
-│       │   ├── mem0-skills/
-│       │   ├── agent-reach/
-│       │   ├── waninter-creative/
-│       │   ├── z-excel-editor/
-│       │   ├── z-mail-reader/
-│       │   ├── z-smart-xparse/
-│       │   ├── z-web-pack/
-│       │   ├── beautiful-feishu-whiteboard/
-│       │   ├── youtube-transcript-local/
-│       │   ├── lark-workflows/
-│       │   └── ...
-│       └── tools/lark-cli/       # 飞书官方 CLI
-└── templates/                    # 模板库
+│   ├── aily-writer/           ← 原有 102 个技能...
+│   ├── ...                    ←
+│   ├── ecom-details-image/          ← 新增
+│   ├── ecommerce-visual-copywriting/← 新增
+│   ├── aesthetic-memory-skills/     ← 新增
+│   ├── mem0-skills/                 ← 新增
+│   ├── agent-reach/                 ← 新增
+│   ├── waninter-creative/           ← 新增
+│   ├── z-excel-editor/              ← 新增
+│   ├── z-mail-reader/               ← 新增
+│   ├── z-smart-xparse/              ← 新增
+│   ├── z-web-pack/                  ← 新增
+│   ├── z-md-excel/                  ← 新增
+│   ├── beautiful-feishu-whiteboard/ ← 新增
+│   ├── youtube-transcript-local/    ← 新增
+│   ├── christies-auctions-summary/  ← 新增
+│   ├── sothebys-auctions-summary/   ← 新增
+│   └── lark-workflows/              ← 新增（含24个工作流）
+└── tools/
+    └── lark-cli/              ← 新增
 ```
 
 ---
